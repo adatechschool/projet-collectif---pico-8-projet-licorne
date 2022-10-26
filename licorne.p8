@@ -5,26 +5,25 @@ __lua__
 -- par aline, amanda, hortense
 
 function _init()
- create_licorne()
+ create_player()
  stars={}
  enemies={}
  spawn_enemies()
 end
 
 function _update()
- licorne_movement()
+ player_movement()
  update_stars()
 end
 
 function _draw()
 cls()
 
---licorne
-draw_licorne()
-spr(4,newx,newy,2,2)
-
 --map
 draw_map()
+
+--licorne
+draw_player()
 
 --etoiles
 for s in all(stars) do
@@ -81,34 +80,34 @@ function check_flag(flag,x,y)
  local sprite=mget(x,y)
  return fget(sprite,flag)
 end
+
 -->8
---licorne player
-function create_licorne()
-  l={
-  x=60,y=60,sprite=4
-  }
+function create_player()
+ p={
+  x=6,
+  y=3,
+  sprite=8
+ }
 end
 
-function licorne_movement()
- newx=l.x
- newy=l.y
+function player_movement()
+ newx=p.x
+ newy=p.y
 
  if (btnp(➡️)) newx+=1
  if (btnp(⬅️)) newx-=1
  if (btnp(⬆️)) newy-=1
  if (btnp(⬇️)) newy+=1
- if (btnp(❎)) shoot()
-end
-  
-function draw_licorne()
-spr(l.sprite,newx*8,newy*8,2,2)
-end
+ 
+ if not check_flag(0,newx,newy) then
+  p.x=mid(0,newx,127)
+  p.y=mid(0,newy,63)
+  end
+ end
 
---function check_flag(flag,x,y)
--- local sprite=mget(x,y)
--- return fget(sprite,flag)
---end
-
+function draw_player()
+ spr(p.sprite,p.x*8,p.y*8)
+end
 __gfx__
 00000000000000000000000022200000000000000000000000000000000aa0000055055000000000000000000000005aaaaaa000555555555555555500000000
 000000000000000000000222eee20a9000000000000000000000000000aaaa000588588500000000000000000000555555000000555555555555555500000000
