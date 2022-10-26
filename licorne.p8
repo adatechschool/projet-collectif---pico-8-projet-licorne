@@ -7,6 +7,8 @@ __lua__
 function _init()
  create_player()
  bullets={}
+ enemies={}
+ spawn_enemies={}
 end
 
 function _update()
@@ -27,7 +29,11 @@ draw_player()
 for b in all(bullets) do
  spr(7,b.x,b.y)
  end
- 
+
+--enemies
+for e in all(enemies) do
+ spr(8,e.x,e.y)
+end 
 
 end
 
@@ -52,6 +58,17 @@ function shoot()
   end
  end
 -->8
+--enemies
+
+function spawn_enemies()
+ local new_enemy={
+  x=e.x*8,
+ y=e.y*8,
+ life=4
+ } 
+add(enemies,new_enemy)
+end
+
 
 -->8
 --map
