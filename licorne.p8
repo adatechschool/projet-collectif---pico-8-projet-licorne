@@ -342,7 +342,7 @@ function spawn_enemies2(amount)
  gap=(128-8*amount)/(amount+1)
  for i=1,amount do
  add(enemies2,{
- x=gap*i + 8*(i+15.5),
+ x=gap*i + 8*flr(i+15.5),
  y=0,
  anim="walk",
  walk={f=38,st=38,sz=2,spd=1/5},
