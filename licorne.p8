@@ -375,8 +375,9 @@ end
 
 function colision_e2()
 for e in all(enemies2) do
+  if flr(e.y/8) == p.y then
  	if flr(e.x/8) == p.x then
- 	if flr(e.y/8) == p.y then
+ 	
  	p.life -= 1
  	e.y -= 8
  	p.y += 2
@@ -394,6 +395,7 @@ if (btn(🅾️)) _init()
 end
 
 function draw_gameover()
+ camera()
  cls (2)
  rectfill(31,53,105,79,0)
  rectfill(28,50,102,76,1)
