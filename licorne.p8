@@ -83,7 +83,7 @@ draw_ui()
 draw_life()
 
 -- tests
-
+draw_win()
 end
 
 
@@ -412,6 +412,14 @@ function draw_gameover()
  
 end
 
+function draw_win()
+ camera()
+ if p.x >= 53 and p.y >= 9 then
+ rectfill(10,53,120,79,0)
+ rectfill(15,50,115,76,1)
+ print("tu as retrouve ta maman,\nbravo, tu as gagne!",20,60,7)
+ end
+end 
 
 __gfx__
 000000000000000000000000222000003333333333333333000000000000aa000055055000000000000000000000005aaaaaa000555555555555555500000000
