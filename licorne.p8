@@ -10,10 +10,22 @@ function _init()
  enemies={}
  enemies2={}
  explosions={}
+ state=0
  
  end
 
 function _update()
+ if (state==0) update_game()
+ if (state==1) update_gameover()
+end
+
+function _draw()
+if (state==0) draw_game()
+if (state==1) draw_gameover()
+end
+
+function update_game()
+
  player_movement()
  update_bullets()
  update_enemies()
@@ -29,10 +41,14 @@ function _update()
  end
  
  colision_e2()
+ 
+ if p.life==0 then
+ state = 1
+ end
   
 end
 
-function _draw()
+function draw_game()
 cls()
 
 --map
@@ -220,10 +236,10 @@ function player_movement()
  	 e.x -= 2
  	 p.x += 2
  	 sfx()
- 		 if p.life == 0 then
-     _init() 
+-- 		 if p.life == 0 then
+--     _init() 
      sfx()
- 	    end   
+-- 	    end   
  	   end
  	  end
  	 end 
@@ -372,6 +388,27 @@ for e in all(enemies2) do
   end
  end
 end
+-->8
+--game over
+
+function update_gameover()
+if (btn(🅾️)) _init()
+--state = 0
+end
+
+function draw_gameover()
+ cls (2)
+ rectfill(31,53,105,79,0)
+ rectfill(28,50,102,76,1)
+ local col=9
+-- if text_timer%8>4 then
+-- col=10
+-- end
+ print("game over",38,56,col)
+ print("🅾️/c:reesayer",38,66,10)
+end
+
+
 __gfx__
 000000000000000000000000222000000000000000000000000000000000aa000055055000000000000000000000005aaaaaa000555555555555555500000000
 000000000000000000000222eee20a90000000000000000000000000000aaaa00588588500000000000000000000555555000000555555555555555500000000
