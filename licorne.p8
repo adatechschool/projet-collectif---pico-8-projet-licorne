@@ -342,7 +342,7 @@ function spawn_enemies2(amount)
  gap=(128-8*amount)/(amount+1)
  for i=1,amount do
  add(enemies2,{
- x=gap*i + 8*flr(i+15.5),
+ x=gap*i + 8*(i+15.5),
  y=0,
  anim="walk",
  walk={f=38,st=38,sz=2,spd=1/5},
@@ -381,16 +381,15 @@ for e in all(enemies2) do
  	p.life -= 1
  	e.y -= 8
  	p.y += 2
-<<<<<<< HEAD
+
 -- 	 if p.life == 0 then
 --     _init()
 --   end
- 	 end
-=======
+-- 	 end
+
  	sfx(4)
  	 
     end
->>>>>>> b78bf0146e1f4fb624ccb6927390a071bc84b331
   end
  end
 end
@@ -403,11 +402,8 @@ end
 
 function draw_gameover()
  camera()
-<<<<<<< HEAD
  cls (14)
-=======
  cls (2)
->>>>>>> b78bf0146e1f4fb624ccb6927390a071bc84b331
  rectfill(31,53,105,79,0)
  rectfill(28,50,102,76,1)
  local col=9
