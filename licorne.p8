@@ -412,7 +412,7 @@ end
 --game over
 
 function update_gameover()
-if (btn(🅾️)) _init()
+if (btn(🅾️)) run()
 end
 
 function draw_gameover()
